@@ -102,6 +102,33 @@ class RandomHandler{
     }
 
     /**
+     * 
+     * @param {String} charset The charset type that you want to use
+     * @returns  {String} return random character
+     * @access public
+     */
+    GenerateRandomChar(charset = "ASCII"){
+        if(charset === "ASCII"){
+                return String.fromCharCode(this.GetRandomNumberBetween(0,127));
+        }
+    }
+
+    /**
+     * 
+     * @param {Number} length The length of returned string 
+     * @param {String} charset The charset type that you want to use
+     * @returns  {String} return random character
+     * @access public
+     */
+    GenerateRandomString(length, charset="ASCII"){
+        var temp = "";
+        for(var i = 0; i<length; i++){        
+            temp = temp.concat(this.GenerateRandomChar(charset));
+        }
+        return temp;
+    }
+
+    /**
      * use this function to save acctual seed or for equivalent purpose
      * @returns {number} returns number that is actually used as seed
      * @access public
@@ -121,4 +148,3 @@ class RandomHandler{
     }
 
 }
-
